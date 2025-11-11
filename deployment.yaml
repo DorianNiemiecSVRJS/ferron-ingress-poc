@@ -44,3 +44,5 @@ spec:
       containers:
         - name: controller
           image: dorianniemiec/ferron-ingress-poc:latest
+          ports:
+            - containerPort: 80
