@@ -1,0 +1,8 @@
+# Kubernetes deployment file
+/deployment.yaml
+
+# Dockerfile
+/Dockerfile
+
+# Ferron configuration
+/ferron.kdl
