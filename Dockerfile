@@ -16,7 +16,7 @@ RUN --mount=type=cache,sharing=private,target=/go/pkg/mod \
 # Copy the rest of files and build the binary
 COPY . ./
 RUN --mount=type=cache,sharing=private,target=/go/pkg/mod \
-    GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o /out/ferron-ingress .
+    CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o /out/ferron-ingress .
 
 # Use Ferron 2 image as base image
 FROM ferronserver/ferron:2
