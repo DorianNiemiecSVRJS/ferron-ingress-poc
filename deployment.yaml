@@ -4,6 +4,26 @@ metadata:
   name: ferron-ingress-poc
   namespace: default
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ferron-ingress-poc
+spec:
+  ports:
+    - appProtocol: http
+      name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+    #- appProtocol: https
+    #  name: https
+    #  port: 443
+    #  protocol: TCP
+    #  targetPort: https
+  selector:
+    app: ferron-ingress-poc
+  type: LoadBalancer
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -44,5 +64,6 @@ spec:
       containers:
         - name: controller
           image: dorianniemiec/ferron-ingress-poc:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
