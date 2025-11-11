@@ -142,7 +142,7 @@ func main() {
 	var ingressClass, configPath, ferronPath string
 	flag.StringVar(&ingressClass, "ingress-class", "ferron-poc", "IngressClass name to handle")
 	flag.StringVar(&configPath, "config-path", "/etc/ferron.kdl", "Path to generated config file")
-	flag.StringVar(&ferronPath, "ferron-path", "/usr/bin/ferron", "Path to Ferron binary")
+	flag.StringVar(&ferronPath, "ferron-path", "/usr/sbin/ferron", "Path to Ferron binary")
 	flag.Parse()
 
 	clientset, err := buildClientset()
